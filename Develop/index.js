@@ -1,12 +1,9 @@
 // the introduction of different modules
-
 const fs = require ('fs');
-const path = require('path');
 const inquirer = require('inquirer');
-const axios = require('axios');
 
 // this is a connection to the document generateMarkdown.js
-const generateMarkdown = require('./generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // JSON for where the info can be changed depending on the project
 const questions = [
@@ -54,21 +51,32 @@ const questions = [
     name: 'test',
     message: 'What commands should be run to test this program?',
     default: 'npm test'
+},
+{
+    // people who contributed to the program in question
+    type: 'input',
+    name: 'contributors',
+    message: 'Who contributed to this project?'
 }
 ];
 
 // function to write the actual README file
 function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+    fs.writeFile(fileName, data, (err) => {
+        if (err) {
+            throw err;
+        }
+    });
+    console.log('README.md created!')
 }
 
 // function to initialize the program in question using inquirer to create a CLI
 function init() {
-    inquirer.prompt(questions).then((inquirerResponses) => {
+    inquirer.prompt(questions).then((answer) => {
         // this is the console.log indicating the README actually being written/generated
         console.log('Generating README...');
-        writeToFile('README.md', generateMarkdown({...inquirerResponses}));
-    });
+        writeToFile('README.md', generateMarkdown({...answer}));
+    })
 }
 
 // function call to initialize program
