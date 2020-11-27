@@ -1,4 +1,11 @@
 // this is what is generated as far as README written out material goes
+function renderLicenseBadge() {
+  if (license !== 'None') {
+    return `[GitHub License] (https://img.shields.io/badge/license-${license}-blue.svg)`
+  }
+  return '';
+}
+
 // function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}

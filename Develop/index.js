@@ -50,7 +50,7 @@ const questions = [
     type: 'input',
     name: 'test',
     message: 'What commands should be run to test this program?',
-    default: 'npm test'
+    default: 'node index.js'
 },
 {
     // people who contributed to the program in question
