@@ -31,13 +31,15 @@ const questions = [
     name: 'description',
     message: 'Describe your project here'
 },
- {
+
+// ---- COMMENTED OUT for later work ----
+//  {
     //  licensure that the project has
-    type: 'list',
-    name: 'license',
-    message: 'What kind of licensure should your project have?',
-    choices: ['MIT', 'APACHE 2.0', 'GPK 3.0', 'BSD 3', 'None']
-},
+//     type: 'list',
+//     name: 'license',
+//     message: 'What kind of licensure should your project have?',
+//     choices: ['MIT', 'APACHE 2.0', 'GPK 3.0', 'BSD 3', 'None']
+// },
 {
     // installation instructions for the project
     type: 'input',

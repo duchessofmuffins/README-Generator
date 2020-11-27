@@ -7,9 +7,13 @@ function renderLicenseBadge() {
 }
 
 // function to generate markdown for README
+// (---COMMENTED OUT FOR LATER WORK----)
+// ${renderLicenseBadge(data.license)}
+// For more information about the license, click below:
+  
+// *[License](https://opensource.org/licenses/${response.license})
 function generateMarkdown(data) {
   return `# ${data.title}
-${renderLicenseBadge(data.license)}
 
 ## Description
 
@@ -36,10 +40,7 @@ ${data.installation}
 ${data.usage}
 
 ## License
-For more information about the license, click below:
-  
-*[License](https://opensource.org/licenses/${response.license})
-
+-commented out for later work-
 
 ## Contributors
 ${data.contributors}
